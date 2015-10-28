@@ -45,7 +45,6 @@ var question = [
     new Question("Do I play the violin?", "yes", "I have played violin for many years \n", "yn"),
     new Question("How many cats do I have?", 3, "I have 3 cats!", "num"),
     new Question("Is my favorite author Hemingway?", "no", "I can't stand him. \n", "yn"),
-    new Question("How many wives did Henry the 8th have?", 6, "He had 6, the cad. \n", "num")
 ];
 var numQuestions = question.length;
 
