@@ -11,3 +11,9 @@ Oct. 2015
 Thanks
 -------
 A shoutout to all those helpers at CodeFellows.
+
+-------
+An orc walks into the bar with a parrot on his shoulder and the bartender says
+"Wow, that's really neat. Where'd you get that?"
+
+"In a cave." the parrot replies.
