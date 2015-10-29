@@ -2,7 +2,6 @@
 alert("Welcome to the Question Game! Press Enter to Continue");
 var userName = prompt("First, what's your name?");
 
-
 //variables
 var numCorrect = 0;
 var rightMessage = "That's right, " + userName + "! ";
@@ -14,13 +13,13 @@ var invalidMessage = {
     "num": "That's not a number! Try again"
 };
 
-
 //constructor defining properties of Question
 function Question(myQues, myAns, response, myType, answerLoc) {
     this.myQues = myQues;
     this.myAns = myAns;
     this.response = response;
     this.myType = myType;
+    var ansContent = "";
     this.answerLoc = answerLoc;
     var ans = document.getElementById(this.answerLoc);
     this.isItCorrect = function () {
@@ -33,21 +32,23 @@ function Question(myQues, myAns, response, myType, answerLoc) {
     this.checkNum = function() {
         userAnswer = parseInt(userAnswer);
         if (userAnswer === myAns){
-            ans.innerHTML = rightMessage + this.response;
+            ansContent = rightMessage + this.response;
             numCorrect += 1;
         } else if (userAnswer > myAns){
-            ans.innerHTML = highMessage + this.response;
+            ansContent = highMessage + this.response;
         } else if (userAnswer < myAns){
-            ans.innerHTML = lowMessage + this.response;
+            ansContent = lowMessage + this.response;
         }
+        ans.innerHTML = ansContent;
     }
     this.checkYN = function(){
         if (userAnswer === myAns){
-            ans.innerHTML = rightMessage + this.response;
+            ansContent = rightMessage + this.response;
             numCorrect += 1;
         } else {
-            ans.innerHTML = wrongMessage + this.response;
+            ansContent = wrongMessage + this.response;
         }
+        ans.innerHTML = ansContent
     }
 }
 
@@ -63,8 +64,6 @@ var question = [
 ];
 
 var numQuestions = question.length;
-
-
 
 //function to check if answer is valid input
 function validateAnswer(userAnswer, myType) {
