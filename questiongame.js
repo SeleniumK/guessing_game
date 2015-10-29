@@ -8,6 +8,7 @@ function Question(myQues, myAns, response, myType, answerLoc) {
     this.response = response;
     this.myType = myType;
     this.answerLoc = answerLoc;
+    var ans = document.getElementById(this.answerLoc);
     this.isItCorrect = function () {
         if (this.myType === 'num'){
             question[i].checkNum();
@@ -20,14 +21,11 @@ function Question(myQues, myAns, response, myType, answerLoc) {
             userAnswer = prompt("Please enter a number\n" + question[i].myQues).toLowerCase();
             question[i].isItCorrect();
         } else if (parseInt(userAnswer) === myAns){
-            var ans = document.getElementById(question[i].answerLoc);
             ans.innerHTML= rightMessage + this.response;
             numCorrect += 1;
         } else if (parseInt(userAnswer) > myAns){
-            var ans = document.getElementById(question[i].answerLoc);
             ans.innerHTML= userName +", That is too high!\n" + this.response;
         } else if (parseInt(userAnswer) < myAns){
-            var ans = document.getElementById(question[i].answerLoc);
             ans.innerHTML= "Too low, " + userName + ". " + this.response;
         }
     }
@@ -36,11 +34,9 @@ function Question(myQues, myAns, response, myType, answerLoc) {
             userAnswer = prompt("Please enter yes or no\n" + question[i].myQues).toLowerCase();
             question[i].isItCorrect();
         } else if (userAnswer === myAns){
-            var ans = document.getElementById(question[i].answerLoc);
             ans.innerHTML= rightMessage + this.response;
             numCorrect += 1;
         } else if (userAnswer != myAns){
-            var ans = document.getElementById(question[i].answerLoc);
             ans.innerHTML= userName + "! No!\n" + this.response;
         }
     }
