@@ -1,11 +1,13 @@
 var numCorrect = 0;
 var userName;
 
-function Question(myQues, myAns, response, myType) {
+
+function Question(myQues, myAns, response, myType, answerLoc) {
     this.myQues = myQues;
     this.myAns = myAns;
     this.response = response;
     this.myType = myType;
+    this.answerLoc = answerLoc;
     this.isItCorrect = function () {
         if (this.myType === 'num'){
             question[i].checkNum();
@@ -18,12 +20,15 @@ function Question(myQues, myAns, response, myType) {
             userAnswer = prompt("Please enter a number\n" + question[i].myQues).toLowerCase();
             question[i].isItCorrect();
         } else if (parseInt(userAnswer) === myAns){
-            alert(rightMessage);
+            var ans = document.getElementById(question[i].answerLoc);
+            ans.innerHTML= rightMessage + this.response;
             numCorrect += 1;
         } else if (parseInt(userAnswer) > myAns){
-            alert(userName +", That is too high!\n" + this.response);
+            var ans = document.getElementById(question[i].answerLoc);
+            ans.innerHTML= userName +", That is too high!\n" + this.response;
         } else if (parseInt(userAnswer) < myAns){
-            alert("Too low, " + userName + ". " + this.response);
+            var ans = document.getElementById(question[i].answerLoc);
+            ans.innerHTML= "Too low, " + userName + ". " + this.response;
         }
     }
     this.checkYN = function(){
@@ -31,28 +36,30 @@ function Question(myQues, myAns, response, myType) {
             userAnswer = prompt("Please enter yes or no\n" + question[i].myQues).toLowerCase();
             question[i].isItCorrect();
         } else if (userAnswer === myAns){
-            alert(rightMessage);
+            var ans = document.getElementById(question[i].answerLoc);
+            ans.innerHTML= rightMessage + this.response;
             numCorrect += 1;
         } else if (userAnswer != myAns){
-            alert(userName + "! No!\n" + this.response);
+            var ans = document.getElementById(question[i].answerLoc);
+            ans.innerHTML= userName + "! No!\n" + this.response;
         }
     }
 }
 
 var question = [
-    new Question("Did I grow up in Bellingham?", "yes", "I grew up in Bellingham \n", "yn"),
-    new Question("Do I eat meat?", "no", "I don't eat meat \n", "yn"),
-    new Question("Do I play the violin?", "yes", "I have played violin for many years \n", "yn"),
-    new Question("How many cats do I have?", 3, "I have 3 cats!", "num"),
-    new Question("Is my favorite author Hemingway?", "no", "I can't stand him. \n", "yn"),
-    new Question("How many wives did Henry the 8th have?", 6, "He had 6, the cad. \n", "num")
+    new Question("Did I grow up in Bellingham?", "yes", "I grew up in Bellingham \n", "yn", "answer1"),
+    new Question("Do I eat meat?", "no", "I don't eat meat \n", "yn", "answer2"),
+    new Question("Do I play the violin?", "yes", "I have played violin for many years \n", "yn", "answer3"),
+    new Question("How many cats do I have?", 3, "I have 3 cats!", "num", "answer4"),
+    new Question("Is my favorite author Hemingway?", "no", "I can't stand him. \n", "yn", "answer5"),
+    new Question("How many wives did Henry the 8th have?", 6, "He had 6, the cad. \n", "num", "answer6")
 
 ];
 var numQuestions = question.length;
 
 alert("Welcome to the Question Game! Press Enter to Continue");
 userName = prompt("First, what's your name?");
-var rightMessage = "That's right, " + userName + "!";
+var rightMessage = "That's right, " + userName + "! \n";
 
 for (var i = 0; i < question.length; i++) {
     userAnswer = prompt(question[i].myQues).toLowerCase();

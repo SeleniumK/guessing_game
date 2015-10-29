@@ -5,7 +5,9 @@ Guessing Game
 
 Simple guessing game. User is prompted with a series of questions with different types of answers (both y/n and numerical) about the author. Game uses HTML, CSS, and Javascript.
 
-Authored by Selena Flannery
+Authored by Selena Flannery - Navigator
+Jared Scarr - Driver,
+Willie Richardson - Third Wheel,
 Oct. 2015
 
 Thanks
