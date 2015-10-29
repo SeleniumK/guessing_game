@@ -1,3 +1,4 @@
+
 var numCorrect = 0;
 var userName;
 //constructor defining properties of Question
@@ -18,9 +19,9 @@ function Question(myQues, myAns, response, myType) {
             alert(rightMessage);
             numCorrect += 1;
         } else if (parseInt(userAnswer) > myAns){
-            alert(highMessage + this.response);
+            alert(userName +", That is too high!\n" + this.response);
         } else if (parseInt(userAnswer) < myAns){
-            alert(lowMessage + this.response);
+            alert("Too low, " + userName + ". " + this.response);
         }
     }
     this.checkYN = function(){
@@ -28,7 +29,7 @@ function Question(myQues, myAns, response, myType) {
             alert(rightMessage);
             numCorrect += 1;
         } else {
-            alert(wrongMessage + this.response);
+            alert(userName + "! No!\n" + this.response);
         }
     }
 }
@@ -47,9 +48,6 @@ userName = prompt("First, what's your name?");
 
 //variable holding messages
 var rightMessage = "That's right, " + userName + "!";
-var wrongMessage = "That's not right, " + userName "!";
-var highMessage = userName + ", That is too high!\n";
-var lowMessage = "Too low, " + userName + ". ";
 var invalidMessage = {
     "yn": "Please enter yes or no.",
     "num": "That's not a number! Try again"
