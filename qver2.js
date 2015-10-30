@@ -14,14 +14,16 @@ var invalidMessage = {
 };
 
 //constructor defining properties of Question
-function Question(myQues, myAns, response, myType, answerLoc) {
+function Question(myQues, myAns, response, myType, answerLoc, picLoc) {
     this.myQues = myQues;
     this.myAns = myAns;
     this.response = response;
     this.myType = myType;
     var ansContent = "";
     this.answerLoc = answerLoc;
+    this.picLoc = picLoc;
     var ans = document.getElementById(this.answerLoc);
+    var pic = document.getElementById(this.picLoc);
     this.isItCorrect = function () {
         if (this.myType === 'num'){
             question[i].checkNum();
@@ -34,6 +36,8 @@ function Question(myQues, myAns, response, myType, answerLoc) {
         if (userAnswer === myAns){
             ansContent = rightMessage + this.response;
             numCorrect += 1;
+            pic.className = "correct";
+            ans.className = "correct";
         } else if (userAnswer > myAns){
             ansContent = highMessage + this.response;
         } else if (userAnswer < myAns){
@@ -45,6 +49,8 @@ function Question(myQues, myAns, response, myType, answerLoc) {
         if (userAnswer === myAns){
             ansContent = rightMessage + this.response;
             numCorrect += 1;
+            pic.className = "correct";
+            ans.className = "correct";
         } else {
             ansContent = wrongMessage + this.response;
         }
@@ -54,12 +60,12 @@ function Question(myQues, myAns, response, myType, answerLoc) {
 
 //array defining question
 var question = [
-    new Question("Did I grow up in Bellingham?", "yes", "I grew up in Bellingham \n", "yn", "answer1"),
-    new Question("Do I eat meat?", "no", "I don't eat meat \n", "yn", "answer2"),
-    new Question("Do I play the violin?", "yes", "I have played violin for many years \n", "yn", "answer3"),
-    new Question("How many cats do I have?", 3, "I have 3 cats!", "num", "answer4"),
-    new Question("Is my favorite author Hemingway?", "no", "I can't stand him. \n", "yn", "answer5"),
-    new Question("How many wives did Henry the 8th have?", 6, "He had 6, the cad. \n", "num", "answer6")
+    new Question("Did I grow up in Bellingham?", "yes", "I grew up in Bellingham \n", "yn", "answer1", "pic1"),
+    new Question("Do I eat meat?", "no", "I don't eat meat \n", "yn", "answer2", "pic2"),
+    new Question("Do I play the violin?", "yes", "I have played violin for many years \n", "yn", "answer3", "pic3"),
+    new Question("How many cats do I have?", 3, "I have 3 cats!", "num", "answer4", "pic4"),
+    new Question("Is my favorite author Hemingway?", "no", "I can't stand him. \n", "yn", "answer5", "pic5"),
+    new Question("How many wives did Henry the 8th have?", 6, "He had 6, the cad. \n", "num", "answer6", "pic6")
 
 ];
 
