@@ -1,0 +1,28 @@
+* {
+/*universal selector*/
+  font-family: Arial;
+  font-size: 14px;
+  background-image: ;
+}
+
+header
+
+h1 {
+/*type selector*/
+  font-size: 20px;
+}
+
+#demo {
+/*ID selector*/
+  background-color: gray;
+  padding: 2%; /*apply 2% padding to all sides */
+  padding: 2% 1%; /*top/bottom & right left - apply 2% padding to all sides top/right/bottom/left, percent of
+  total element*/
+  margin: ;
+  color: ;
+
+}
+
+.correct {
+/*Class selector*/
+}
